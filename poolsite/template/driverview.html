@@ -1,0 +1,17 @@
+{% include "base.html" %}
+
+
+
+{% block content %}
+
+<div class="card-columns">
+
+    {% for d in object_list %}
+    
+    {% include 'user/drivercard.html' with driver=d  %}
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
