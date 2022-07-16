@@ -9,6 +9,8 @@ class Driver(models.Model):
     dn = models.CharField(max_length=10,  primary_key=True, verbose_name="Driver numer")
     name = models.CharField(max_length=30,verbose_name="Driver name",blank=True)
     contact = models.CharField(max_length = 20)
+    email = models.EmailField()
+    password = models.CharField(max_length=20)  
     source = models.TextField() 
     destination = models.TextField()
 
@@ -23,7 +25,7 @@ class Userprof(models.Model):
       name = models.CharField(max_length=30,verbose_name="User name",blank=True)
       contact = models.CharField(max_length = 20)
       email = models.EmailField()
-
+      password = models.CharField(max_length=20)  
       class Meta:
          verbose_name = "Userprof"
     

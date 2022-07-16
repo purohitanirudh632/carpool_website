@@ -1,18 +1,52 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-<h1>driver Login From</h1>
+<style>
+    .login-box{
+        background-image: url("/static/images/carpool1.jpg") ;
+        background-repeat: no-repeat;
+        background-size:cover;
+        height: calc(100vh - 30px);
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      
+        /* clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%); */
+    }
 
-<div class="container bg-light p-3 mt-4">
+ .login-card
+{
+
+  margin-left : 100px;
+  transform: translateY(110px);
+  filter : grayscale(10%);
+}
+</style>
+
+<div class="  container-fluid login-box">
+
+<div class="card  login-card" style="width: 23rem;">
+    <img src="/static/images/driver.png" class="card-img-top mx-auto w-50" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Sign In</h5>
+      <p class="card-text"> people are wating for your service</p>
+    </div>
+    
+    <div class="card-body">
     {% load crispy_forms_tags %}
-<form method = 'POST'  >
-    {% csrf_token %}
 
-    {{ form|crispy }}
+        <form method = 'POST'  >
+            {% csrf_token %}
+        
+            {{ form|crispy }}
+        
+            <button type = "submit" class="btn btn-success">Login</button>
+        
+        </form>
+    </div>
+  </div>
 
-    <button type = "submit" class="btn btn-success">Login</button>
-
-</form>
 </div>
 
 

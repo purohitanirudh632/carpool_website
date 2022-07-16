@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-<h1>driver Registeration From</h1>
+
+{% load bootstrap_tags %} 
+<div class="container-fluid register-box"> 
+    
+<h1 style= "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">driver Registeration From</h1>
 
 <div class="container bg-light p-3 mt-4">
     {% load crispy_forms_tags %}
@@ -14,7 +19,6 @@
 
 </form>
 </div>
-
+</div>
 
 {% endblock %}
-

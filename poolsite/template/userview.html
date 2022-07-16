@@ -3,20 +3,51 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>select source and destination</h1>
+<style>
+    .register-box{
+        background-image: url("/static/images/car12.jpg") ;
+        background-repeat: no-repeat;
+        background-size:cover;
+        margin: 0;
+        padding: 0;
+      
+        /* clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%); */
+    }
 
-<div class="container bg-light p-3 mt-4">
-    {% load crispy_forms_tags %}
+ .register-card
+{
+
+  margin-left : 100px;
+  transform: translateY(10px);
+  filter : grayscale(10%);
+}
+</style>
+
+<div class="  container-fluid register-box">
+
+<div class="card  register-card" style="width: 20rem;">
+    <!-- <img src="/static/images/user.png" class="card-img-top mx-auto w-50" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">enter your pickup spot & destination</h5>
+      <p class="card-text"> ...........</p>
+    </div>
+    
+    <div class="card-body">
+          {% load crispy_forms_tags %}
 <form method = 'POST'  >
     {% csrf_token %}
 
     {{ form|crispy }}
 
-    <button type = "submit" class="btn btn-success">pool now</button>
+    <button type = "submit" class="btn btn-success">pool_now</button>
 
 </form>
+    </div>
+  </div>
 
-<div class="row bg-success">
+<hr>
+
+  <div class="row p-4">
 
     <div class="card-columns">
 
@@ -27,6 +58,7 @@
         {% endfor %}
     
     </div>
+
 
 </div>
 

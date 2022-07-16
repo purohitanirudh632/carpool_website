@@ -11,36 +11,24 @@
         
       
         <!-- Bootstrap CSS -->
-        <link    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        {% load static %}
-        <link rel="stylesheet" href= "{% static 'CSS/profile-card.css' %}?{% now 'U' %}">
-        <link rel="stylesheet" href="{% static 'CSS/styles.css' %}?{% now 'U' %}" >
-        <link rel="stylesheet" href="{% static 'CSS/inline.css' %}?{% now 'U' %}" >
-        <link rel="stylesheet" href="{% static 'CSS/login.css' %}?{% now 'U' %}" >
-        <link rel="stylesheet" href="{% static 'CSS/home.css' %}?{% now 'U' %}" >        
-        <link rel="stylesheet" href="{% static 'CSS/home_animation.css' %}?{% now 'U' %}" >
-        <link    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <script type="text/javascript" src="{% static 'JS/vanilla-tilt.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'JS/scroll-out.js' %}"></script>        
-        <!-- <script type="module" src = "{% static 'JS/detail.js' %}"></script> -->
-        <script src="https://kit.fontawesome.com/4094b5d309.js" crossorigin="anonymous"></script>
-        <!-- <script type="text/javascript" src="{% static 'JS/particles.js' %}"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        <style>
+          *{
+            scroll-behavior: smooth;
+          }
+        </style>
       </head>
 
   <body class="main " >
     {% include 'navbar.html' %}
    
-    <div class ='container-fluid mt-0 '>   
       
    
-      <div class="row ">
-        <div class ='container-fluid root mt-0 ' id="root">
+        <div class ='container-fluid root mt-0 p-0' id="root">
         {% block content %}
 
+       
           {% endblock %}
                
-        </div>
         
       </div> 
       <!-- <div class="row mb-0 mt-5" >       
@@ -50,16 +38,9 @@
       </div> -->
 
     </div>
-       
-    
- 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>     
-    <script  type="module" src="https://unpkg.com/@freshworks/crayons/dist/crayons/crayons.esm.js">
-    </script>
-    <script  nomodule   src="https://unpkg.com/@freshworks/crayons/dist/crayons/crayons.js">
-    </script>
       
+
+
 
   </body>
 

@@ -13,6 +13,7 @@ from pathlib import Path
 import os
 from .forms import *
 from .models import *
+from django.contrib import messages
 
 
 
@@ -45,10 +46,14 @@ def user_login(request):
     if request.method == "POST":
         form = UserLoginForm(request.POST)
         if form.is_valid():
-
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            obj = get_object_or_404(Userprof, email= email, password=password)
             # user = form.save(commit=False)
             # user.save()
             return redirect('/user/user_view')
+        else:
+            messages.error(request, "Error!") 
     else:
         form = UserLoginForm()
         context = {"form" : form }
@@ -61,7 +66,6 @@ def user_register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            print("\n\n\n\n\nuser -- ", user.source)
             user.save()
             return redirect('/user/user_view')
             # new_user = form.save(commit=False)
@@ -90,17 +94,44 @@ def driver_view(request):
     return render(request,template_name,context)
 
 
-
-
-
 def driver_login(request):
-    template_name = 'userview.html'
-    userabc = Userprof.objects.all()
-    context = {'object_list': userabc}
-    return render(request,template_name,context)
+    if request.method == "POST":
+        form = DriverLoginForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
+            obj = get_object_or_404(Driver, email= email, password=password)
+            # user = form.save(commit=False)
+            # user.save()
+            return redirect('/user/driver_view')
+        else:
+            messages.error(request, "Error!") 
+    else:
+        form = DriverLoginForm()
+        context = {"form" : form }
+        template_name = "driver/login.html"
+        return render(request,template_name, context)
+
+
+
+
 
 def driver_register(request):
-    template_name = 'userview.html'
-    userabc = Userprof.objects.all()
-    context = {'object_list': userabc}
-    return render(request,template_name,context)
+        if request.method == "POST":
+          form = DriverRegistrationForm(request.POST)
+          if form.is_valid():
+            driver = form.save(commit=False)
+            driver.save()
+            return redirect('/user/driver_view')
+          else:
+            messages.error(request, "Error!")   
+
+        else:
+          form = DriverRegistrationForm()
+          context = {"form" : form }
+          template_name = "driver/register.html"
+          return render(request,template_name, context)
+    # template_name = 'userview.html'
+    # userabc = Userprof.objects.all()
+    # context = {'object_list': userabc}
+    # return render(request,template_name,context)
